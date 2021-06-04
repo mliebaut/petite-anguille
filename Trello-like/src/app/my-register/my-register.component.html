@@ -1,0 +1,11 @@
+<div class="register-page">
+    <div class="form">
+        <form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="register-form">
+            <input type="text" placeholder="name" formControlName="name"/>
+            <input type="password" placeholder="password" formControlName="pass"/>
+            <input type="text" placeholder="email address" formControlName="mail"/>
+            <button type="submit" value="create">create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+    </div>
+</div>

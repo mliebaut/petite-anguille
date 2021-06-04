@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card{
+    height: 89vh; /* Your height here */
+    overflow: hidden;
+}
+
+.post-it {
+    width: 100%;
+    background: white;
+    color: black;
+}
+
+.pt {
+    padding-top: 10px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}

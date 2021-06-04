@@ -1,0 +1,111 @@
+
+    <div class="container">
+        <div class="row">
+            <div class="col s4 m4 card">
+                <div class="card teal lighten-5">
+                    <div class="card-content black-text">
+                        <span class="card-title">A Faire</span>
+                        <button (click)="addTask()">Add Task</button>
+                        <div class="row">
+                            <div *ngFor="let task of tasksService.tasks; index as i">
+                                <div *ngIf="task.state==0;">
+                                    <div *ngIf="task.edit==true; then thenBlock else elseBlock">
+                                    </div>
+                                    <ng-template #thenBlock>
+                                        <div class="post-it">
+                                            <input type="text" [(ngModel)]="task.title">
+                                            <textarea [(ngModel)]= "task.content"></textarea>
+                                            <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                    <div class="post-it">
+                                        <h3>{{ task.title }}</h3>
+                                        <p>{{ task.content }}</p>
+                                        <div class="container">
+                                            <a (click)="changeStateLeft(i)"class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons"><-</i></a>
+                                            <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                            <a (click)="changeStateRight(i)" class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons">-></i></a>
+                                            <div class="container">
+                                                <a (click)="deleteTask(i)" class=" center waves-effect waves-light btn red lighten-2">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4 m4 card">
+                <div class="card teal lighten-4">
+                    <div class="card-content black-text">
+                        <span class="card-title">En cours</span>
+                        <div class="row">
+                            <div *ngFor="let task of tasksService.tasks; index as i">
+                                <div *ngIf="task.state==1;">
+                                    <div *ngIf="task.edit==true; then thenBlock else elseBlock">
+                                    </div>
+                                    <ng-template #thenBlock>
+                                        <div class="post-it">
+                                            <input type="text" [(ngModel)]="task.title">
+                                            <textarea [(ngModel)]= "task.content"></textarea>
+                                            <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                    <div class="post-it">
+                                        <h3>{{ task.title }}</h3>
+                                        <p>{{ task.content }}</p>
+                                        <div class="container">
+                                            <a (click)="changeStateLeft(i)"class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons"><-</i></a>
+                                            <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                            <a (click)="changeStateRight(i)" class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons">-></i></a>
+                                        </div>
+                                    </div>
+                                    </ng-template>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4 m4 card">
+                <div class="card teal lighten-3">
+                    <div class="card-content black-text">
+                        <span class="card-title">Terminé</span>
+                        <div class="row">
+                            <div *ngFor="let task of tasksService.tasks; index as i">
+                                <div *ngIf="task.state==2;">
+                                    <div class="post-it">
+                                        <div *ngIf="task.edit==true; then thenBlock else elseBlock">
+                                        </div>
+                                        <ng-template #thenBlock>
+                                            <div class="post-it">
+                                                <input type="text" [(ngModel)]="task.title">
+                                                <textarea [(ngModel)]= "task.content"></textarea>
+                                                <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                            </div>
+                                        </ng-template>
+                                        <ng-template #elseBlock>
+                                        <div class="post-it">
+                                            <h3>{{ task.title }}</h3>
+                                            <p>{{ task.content }}</p>
+                                            <div class="container">
+                                                <a (click)="changeStateLeft(i)"class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons"><-</i></a>
+                                                <button (click)="validEdit(i)" class="waves-effect waves-light btn">Modifier</button>
+                                                <a (click)="changeStateRight(i)" class="btn-floating btn-small waves-effect blue lighten-1"><i class="material-icons">-></i></a>
+                                            </div>
+                                        </div>
+                                        </ng-template>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

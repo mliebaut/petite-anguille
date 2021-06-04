@@ -1,0 +1,10 @@
+<div class="login-page">
+    <div class="form">
+      <form [formGroup]="connexionForm" (ngSubmit)="validForm()" class="login-form">
+        <input type="text" placeholder="name" formControlName="name"/>
+        <input type="password" placeholder="password" formControlName="pass"/>
+        <button type="submit" value="Login">login</button>
+        <p class="message">Not registered? <a routerLink="#">Create an account</a></p>
+      </form>
+    </div>
+</div>
